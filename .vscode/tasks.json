@@ -38,5 +38,10 @@
             "label": "stack watch",
             "command": "echo START_STACK_WATCH; cd ${workspaceRoot}; stack build --test --no-run-tests --file-watch; echo END_STACK_WATCH ",
         },
+        {
+            "type": "shell",
+            "label": "stack exec",
+            "command": "cd ${workspaceRoot}; stack exec test2-exe",
+        },
     ],
 }
