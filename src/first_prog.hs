@@ -32,3 +32,15 @@ square x = x ^ 2
 
 oddOrEven :: Int -> String
 oddOrEven x = if rem x 2 == 0 then "even" else "odd"
+
+sumSquareOrSquareSum a b =
+    (\sumSquare squareSum ->
+            if sumSquare > squareSum then sumSquare else squareSum
+        )
+        ((a ^ 2) + (b ^ 2))
+        ((a + b) ^ 2)
+
+
+doubleDouble x = dubs * 2 where dubs = x * 2
+
+ddx x = d (d x) where d = \x -> x * 2
