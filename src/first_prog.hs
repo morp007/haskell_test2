@@ -1,9 +1,11 @@
 module TT where
 
-import Data.Typeable
+import Data.Dynamic
+-- import Data.Typeable
 
 
-getType x = show (typeOf x)
+-- getType x = show (typeOf x)
+getType x = print (dynTypeRep (toDyn x))
 
 toPart name = "dear " ++ name
 bodyPart title = "book titile: " ++ title
