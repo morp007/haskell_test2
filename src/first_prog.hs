@@ -25,3 +25,19 @@ messyMain = do
     print "enter author"
     author <- getLine
     print (createMsg email title author)
+
+
+calcChange owed given =
+    if x > 0
+    then x
+    else 0
+    where
+        x = given - owed
+
+square x = x ^ 2
+
+oddOrEven :: Int -> String
+oddOrEven x =
+    if rem x 2 == 0
+    then "even"
+    else "odd"
