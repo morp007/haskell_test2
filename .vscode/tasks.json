@@ -5,6 +5,7 @@
     "presentation": {
         "reveal": "always",
         // "panel": "new",
+        "clear": true,
     },
     "problemMatcher": [],
     "tasks": [
@@ -41,6 +42,16 @@
         {
             "type": "shell",
             "label": "stack exec",
+            "command": "cd ${workspaceRoot}; stack exec test2-exe",
+            "dependsOrder": "sequence",
+            "dependsOn": ["stack build", ],
+            "presentation": {
+                "clear": false,
+            },
+        },
+        {
+            "type": "shell",
+            "label": "run",
             "command": "cd ${workspaceRoot}; stack exec test2-exe",
         },
     ],
