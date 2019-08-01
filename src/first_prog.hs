@@ -1,5 +1,9 @@
 module TT where
 
+import Data.Typeable
+
+
+getType x = show (typeOf x)
 
 toPart name = "dear " ++ name
 bodyPart title = "book titile: " ++ title
