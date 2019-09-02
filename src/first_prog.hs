@@ -1,6 +1,7 @@
 module TT where
 
 import           Data.Dynamic
+import           Data.List
 -- import Data.Typeable
 
 
@@ -58,3 +59,12 @@ l34_x = 4
 l34_add1 y = y + l34_x
 l34_add2 y = (\l34_x -> y + l34_x) 3
 l34_add3 y = (\y -> (\l34_x -> l34_x + y) 1) 2
+
+-- lesson 4
+-- listing 4.5
+l45_compareLastName x y | lLastName > rLastName = GT
+                        | lLastName < rLastName = LT
+                        | otherwise             = EQ
+  where
+    lLastName = snd x
+    rLastName = snd y
