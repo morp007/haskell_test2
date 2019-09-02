@@ -46,13 +46,7 @@ doubleDouble x = dubs * 2 where dubs = x * 2
 
 ddx x = d (d x) where d = \x -> x * 2
 
-overwrite x = let x = 2
-              in
-                let x = 3
-                in
-                    let x = 4
-                    in
-                        x
+overwrite x = let x = 2 in let x = 3 in let x = 4 in x
 
 -- lesson 3.4
 l34_x = 4
