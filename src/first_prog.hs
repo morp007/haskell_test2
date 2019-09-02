@@ -52,3 +52,9 @@ overwrite x = let x = 2
                     let x = 4
                     in
                         x
+
+-- lesson 3.4
+l34_x = 4
+l34_add1 y = y + l34_x
+l34_add2 y = (\l34_x -> y + l34_x) 3
+l34_add3 y = (\y -> (\l34_x -> l34_x + y) 1) 2
