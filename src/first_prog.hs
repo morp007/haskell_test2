@@ -56,9 +56,6 @@ l34_add3 y = (\y -> (\l34_x -> l34_x + y) 1) 2
 
 -- lesson 4
 -- listing 4.5
-l45_compareLastName x y | lLastName > rLastName = GT
-                        | lLastName < rLastName = LT
-                        | otherwise             = EQ
-  where
-    lLastName = snd x
-    rLastName = snd y
+l45_compareLastName x y | compareRes == EQ = fst x `compare` fst y
+                        | otherwise = compareRes
+                        where compareRes = snd x `compare` snd y
