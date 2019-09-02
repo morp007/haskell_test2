@@ -59,3 +59,14 @@ l34_add3 y = (\y -> (\l34_x -> l34_x + y) 1) 2
 l45_compareLastName x y | compareRes == EQ = fst x `compare` fst y
                         | otherwise = compareRes
                         where compareRes = snd x `compare` snd y
+
+
+l45_abstractCompare' [] [] = EQ
+l45_abstractCompare' _ [] = GT
+l45_abstractCompare' [] _ = LT
+l45_abstractCompare' rx ry | compareRes == EQ = tail rx `l45_abstractCompare'` tail ry
+                           | otherwise = compareRes
+                           where
+                               compareRes = head rx `compare` head ry
+l45_abstractCompare :: Ord a => [a] -> [a] -> Ordering
+l45_abstractCompare x y = reverse x `l45_abstractCompare'` reverse y
