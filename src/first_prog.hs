@@ -2,6 +2,7 @@ module TT where
 
 import           Data.Dynamic
 import           Data.List
+import           Data.Maybe
 -- import Data.Typeable
 
 
@@ -70,3 +71,14 @@ l45_abstractCompare' rx ry | compareRes == EQ = tail rx `l45_abstractCompare'` t
                                compareRes = head rx `compare` head ry
 l45_abstractCompare :: Ord a => [a] -> [a] -> Ordering
 l45_abstractCompare x y = reverse x `l45_abstractCompare'` reverse y
+
+
+fizzBuzz n =
+    let
+        base divisor s =
+            if (n `mod` divisor) == 0
+                then Just s
+                else Nothing
+        maybeFizz = base 3 "Fizz"
+        maybeBuzz = base 5 "Buzz"
+    in fromMaybe (show n) (maybeFizz <> maybeBuzz)
