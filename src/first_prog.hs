@@ -1,6 +1,8 @@
 module TT where
 
+import           Control.Arrow
 import           Data.Dynamic
+import           Data.Function
 import           Data.List
 import           Data.Maybe
 -- import Data.Typeable
@@ -99,6 +101,11 @@ getRanges = foldr go ([])  -- делаем reduce
         _                          -> (x, x) : t     -- иначе создаем новый интервал
 
 getRangesAndPrint_v1 = print . getRanges
+
+-- см. https://habr.com/ru/post/470660/#comment_20729904
+getRanges_v2 = map ((head &&& last) . map snd) . groupBy ((==) `on` fst) . zipWith
+    (\i v -> (v - i, v))
+    [0 ..]
 
 -- -- типа другой вывод
 -- main = do
