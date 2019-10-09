@@ -82,3 +82,28 @@ fizzBuzz n =
         maybeFizz = base 3 "Fizz"
         maybeBuzz = base 5 "Buzz"
     in fromMaybe (show n) (maybeFizz <> maybeBuzz)
+
+
+-- см. https://habr.com/ru/post/470407/#comment_20729322
+--
+-- Необходимо реализовать функцию getRanges, которая возвращает следующие результаты
+-- getRanges([0, 1, 2, 3, 4, 7, 8, 10]) // "0-4,7-8,10"
+-- getRanges([4,7,10]) // "4,7,10"
+-- getRanges([2, 3, 8, 9]) // "2-3,8-9"
+--
+getRanges :: [Int] -> [(Int, Int)]
+getRanges = foldr go ([])  -- делаем reduce
+  where
+    go x t = case t of -- берем очередной элемент и аккумулятор
+        ((l, r) : as) | l - x == 1 -> ((x, r) : as) -- если там что-то есть и можем всунуть, то расширяем ренж текущим элементом
+        _                          -> (x, x) : t     -- иначе создаем новый интервал
+
+getRangesAndPrint_v1 = print . getRanges
+
+-- -- типа другой вывод
+-- main = do
+--   let ranges = getRanges [0, 1, 2, 3, 4, 7, 8, 10]
+--   let format = fmap $ \x -> case x of
+--                 (a, b) | a == b -> $"{a}"
+--                 (a, b) -> $"{a}-{b}"
+--   print $ format ranges
