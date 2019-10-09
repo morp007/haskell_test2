@@ -1,3 +1,5 @@
 .stack-work/
 test2.cabal
 *~
+
+.idea/
