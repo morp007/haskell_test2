@@ -152,3 +152,8 @@ qc73_myTail (_:xs) = xs
 q71_myTail :: [a] -> [a]
 q71_myTail [] = []              -- обязательно идет 1
 q71_myTail x = qc73_myTail x
+
+
+qc81_myLength :: [a] -> Int
+qc81_myLength [] = 0
+qc81_myLength (_:xs) = 1 + qc81_myLength xs
