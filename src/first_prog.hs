@@ -162,3 +162,19 @@ qc81_myLength (_:xs) = 1 + qc81_myLength xs
 q81_reverse :: [a] -> [a]
 q81_reverse [] = []
 q81_reverse (x:xs) = q81_reverse xs ++ [x]
+
+
+q82_fib :: Int -> Int
+q82_fib 0 = 0
+q82_fib 1 = 1
+q82_fib n = q82_fib (n-1) + q82_fib (n-2)
+
+q82_fastFib_fromBook' :: Int -> Int -> Int -> Int
+q82_fastFib_fromBook' _ _ 0 = 0
+q82_fastFib_fromBook' _ _ 1 = 1
+q82_fastFib_fromBook' _ _ 2 = 1
+q82_fastFib_fromBook' x y 3 = x + y
+q82_fastFib_fromBook' x y c = q82_fastFib_fromBook' (x + y) x (c - 1)
+
+q82_fastFib_fromBook :: Int -> Int
+q82_fastFib_fromBook = q82_fastFib_fromBook' 1 1
