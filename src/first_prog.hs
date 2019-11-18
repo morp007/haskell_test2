@@ -67,10 +67,10 @@ l45_compareLastName x y | compareRes == EQ = fst x `compare` fst y
 l45_abstractCompare' [] [] = EQ
 l45_abstractCompare' _ [] = GT
 l45_abstractCompare' [] _ = LT
-l45_abstractCompare' rx ry | compareRes == EQ = tail rx `l45_abstractCompare'` tail ry
+l45_abstractCompare' (x:xs) (y:ys) | compareRes == EQ = xs `l45_abstractCompare'` ys
                            | otherwise = compareRes
                            where
-                               compareRes = head rx `compare` head ry
+                               compareRes = x `compare` y
 l45_abstractCompare :: Ord a => [a] -> [a] -> Ordering
 l45_abstractCompare x y = reverse x `l45_abstractCompare'` reverse y
 
