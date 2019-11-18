@@ -119,3 +119,6 @@ ifEven myFunction x = if even x then myFunction x else x
 
 
 qc51_genIfXEven x = \myFunction -> ifEven myFunction x
+
+
+qc54_subtract2 = flip (-) 2
