@@ -114,3 +114,5 @@ getRanges_v2 = map ((head &&& last) . map snd) . groupBy ((==) `on` fst) . zipWi
 --                 (a, b) | a == b -> $"{a}"
 --                 (a, b) -> $"{a}-{b}"
 --   print $ format ranges
+
+ifEven myFunction x = if even x then myFunction x else x
