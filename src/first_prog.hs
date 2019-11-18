@@ -124,7 +124,6 @@ qc51_genIfXEven x = \myFunction -> ifEven myFunction x
 qc54_subtract2 = flip (-) 2
 
 
-q62_subseq start end list =
-    if start == end
-    then []
-    else (list !! start) : q62_subseq (start + 1) end list
+q62_subseq start end list = case compare start end of
+    LT -> (list !! start) : q62_subseq (start + 1) end list
+    _ -> []
