@@ -146,4 +146,9 @@ q63_inFirstHalf_fromBook val myList = val `elem` firstHalf
         firstHalf = take midpoint myList
 
 
-qc73_myTail (_:xs) = xs
+qc73_myTail (_:xs) = xs
+
+
+q71_myTail :: [a] -> [a]
+q71_myTail [] = []              -- обязательно идет 1
+q71_myTail x = qc73_myTail x
