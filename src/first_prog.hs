@@ -127,3 +127,14 @@ qc54_subtract2 = flip (-) 2
 q62_subseq start end list = case compare start end of
     LT -> (list !! start) : q62_subseq (start + 1) end list
     _ -> []
+
+
+-- возвращает True, если элемент в 1 половине списка С УЧЕТОМ граничного элемента
+q63_inFirstHalf :: Eq a => a -> [a] -> Bool
+q63_inFirstHalf value list =
+    case compare (valueIndex * 2) listLength of
+        LT -> True
+        _  -> False
+    where
+        listLength = length list
+        valueIndex = fromMaybe listLength $ Data.List.elemIndex value list
