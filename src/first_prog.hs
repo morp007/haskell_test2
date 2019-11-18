@@ -144,3 +144,6 @@ q63_inFirstHalf_fromBook val myList = val `elem` firstHalf
     where
         midpoint = length myList `div` 2
         firstHalf = take midpoint myList
+
+
+qc73_myTail (_:xs) = xs
