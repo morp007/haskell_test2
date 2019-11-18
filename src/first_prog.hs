@@ -137,4 +137,10 @@ q63_inFirstHalf value list =
         _  -> False
     where
         listLength = length list
-        valueIndex = fromMaybe listLength $ Data.List.elemIndex value list
+        valueIndex = fromMaybe listLength $ Data.List.elemIndex value list
+-- возвращает True, если элемент в 1 половине списка НЕ УЧИТЫВАЯ граничный элемент
+-- (пример из книги)
+q63_inFirstHalf_fromBook val myList = val `elem` firstHalf
+    where
+        midpoint = length myList `div` 2
+        firstHalf = take midpoint myList
