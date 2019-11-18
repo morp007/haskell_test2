@@ -157,3 +157,8 @@ q71_myTail x = qc73_myTail x
 qc81_myLength :: [a] -> Int
 qc81_myLength [] = 0
 qc81_myLength (_:xs) = 1 + qc81_myLength xs
+
+
+q81_reverse :: [a] -> [a]
+q81_reverse [] = []
+q81_reverse (x:xs) = q81_reverse xs ++ [x]
