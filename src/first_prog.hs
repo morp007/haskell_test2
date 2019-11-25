@@ -1,6 +1,7 @@
 module TT where
 
 import           Control.Arrow
+import           Data.Char
 import           Data.Dynamic
 import           Data.Function
 import           Data.List
@@ -182,3 +183,8 @@ q82_fastFib_fromBook = q82_fastFib_fromBook' 1 1
 
 q91_elem :: Eq a => a -> [a] -> Bool
 q91_elem value xs = (/=) 0 $ length $ filter (== value) xs
+
+
+q92_isPalindrome :: String -> Bool
+q92_isPalindrome xs = words == reverse words
+        where words = filter (/= ' ') $ map toLower xs
