@@ -178,3 +178,7 @@ q82_fastFib_fromBook' x y c = q82_fastFib_fromBook' (x + y) x (c - 1)
 
 q82_fastFib_fromBook :: Int -> Int
 q82_fastFib_fromBook = q82_fastFib_fromBook' 1 1
+
+
+q91_elem :: Eq a => a -> [a] -> Bool
+q91_elem value xs = (/=) 0 $ length $ filter (== value) xs
