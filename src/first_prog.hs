@@ -197,3 +197,14 @@ q93_harmonic_fromBook  n = sum (take n seriesValues)
     where
         seriesPairs = zip (repeat 1.0) [1.0, 2.0 .. ]
         seriesValues = map (\pair -> (fst pair) / (snd pair)) seriesPairs
+
+
+type L12_PatientName = (String, String)
+type L12_Age = Int
+type L12_Height = Int
+
+qc121_patientInfo :: L12_PatientName -> L12_Age -> L12_Height -> String
+qc121_patientInfo (fname, lname) age height = name ++ " " ++ ageHeight
+    where
+        name = fname ++ ", " ++ lname
+        ageHeight = "(" ++ show age ++ "yrs. " ++ show height ++ "in.)"
