@@ -192,3 +192,8 @@ q92_isPalindrome xs = words == reverse words
 
 q93_harmonic 0 = 0
 q93_harmonic x = (1 / x) + q93_harmonic (x - 1)
+
+q93_harmonic_fromBook  n = sum (take n seriesValues)
+    where
+        seriesPairs = zip (repeat 1.0) [1.0, 2.0 .. ]
+        seriesValues = map (\pair -> (fst pair) / (snd pair)) seriesPairs
