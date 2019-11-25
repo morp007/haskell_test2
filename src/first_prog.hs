@@ -188,3 +188,7 @@ q91_elem value xs = (/=) 0 $ length $ filter (== value) xs
 q92_isPalindrome :: String -> Bool
 q92_isPalindrome xs = words == reverse words
         where words = filter (/= ' ') $ map toLower xs
+
+
+q93_harmonic 0 = 0
+q93_harmonic x = (1 / x) + q93_harmonic (x - 1)
